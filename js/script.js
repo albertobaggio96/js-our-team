@@ -45,17 +45,31 @@ for(let i = 0; i < peopleTeam.length; i++){
   console.log(personTeam);
   for(let key in personTeam){
     console.log(personTeam[key])
-    let divElement = getNewDiv(mainElement)
-    mainElement.append(divElement)
-    divElement.append(personTeam[key])
+      let imgElement = getNewImgElement()
+      imgElement.src = "./img/angela-caroll-chief-editor.jpg"
+      mainElement.append(imgElement)
+      let divElement = getNewDiv(mainElement)
+      console.log(imgElement)
+      mainElement.append(divElement)
+      divElement.append(personTeam[key])
   }
 }
+
+let getElement = document.querySelector("img")
+
+console.log(getElement)
 
 
 
 // *********************** Funzioni ******************************
 function getNewDiv(){
   let newElement= document.createElement("div");
+
+  return newElement
+}
+
+function getNewImgElement(){
+  let newElement= document.createElement("img");
 
   return newElement
 }
