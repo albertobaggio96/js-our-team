@@ -1,4 +1,7 @@
 const mainElement = document.querySelector("main");
+const rowElement= getNewElement("div");
+rowElement.classList.add("row", "text-center");
+mainElement.append(rowElement);
 
 
 const peopleTeam=[
@@ -43,31 +46,23 @@ const peopleTeam=[
 for(let i = 0; i < peopleTeam.length; i++){
   const personTeam = peopleTeam[i];
   console.log(personTeam);
-  
-  let imgElement = getNewImgElement()
-  imgElement.src = `img/${personTeam.photo}`
-  mainElement.append(imgElement)
-  let divElement = getNewDiv(mainElement)
-  console.log(imgElement)
-  mainElement.append(divElement)
-  divElement.append(`${personTeam.name} ${personTeam.surname} ${personTeam.workingRole}`)
+  const colElement= getNewElement("div");
+  colElement.classList.add("col-6");
+  rowElement.append(colElement)
+  const imgElement = getNewElement("img");
+  imgElement.classList.add("w-50")
+  imgElement.src = `img/${personTeam.photo}`;
+  colElement.append(imgElement);
+  const divElement = getNewElement("div");
+  colElement.append(divElement);
+  divElement.innerHTML = `${personTeam.name} <br> ${personTeam.surname} <br>${personTeam.workingRole}`;
 }
-
-let getElement = document.querySelector("img")
-
-console.log(getElement)
-
 
 
 // *********************** Funzioni ******************************
-function getNewDiv(){
-  let newElement= document.createElement("div");
+function getNewElement(elemnt){
+  let newElement= document.createElement(elemnt);
 
-  return newElement
+  return newElement;
 }
 
-function getNewImgElement(){
-  let newElement= document.createElement("img");
-
-  return newElement
-}
