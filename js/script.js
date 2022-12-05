@@ -43,16 +43,14 @@ const peopleTeam=[
 for(let i = 0; i < peopleTeam.length; i++){
   const personTeam = peopleTeam[i];
   console.log(personTeam);
-  for(let key in personTeam){
-    console.log(personTeam[key])
-      let imgElement = getNewImgElement()
-      imgElement.src = "./img/angela-caroll-chief-editor.jpg"
-      mainElement.append(imgElement)
-      let divElement = getNewDiv(mainElement)
-      console.log(imgElement)
-      mainElement.append(divElement)
-      divElement.append(personTeam[key])
-  }
+  
+  let imgElement = getNewImgElement()
+  imgElement.src = `img/${personTeam.photo}`
+  mainElement.append(imgElement)
+  let divElement = getNewDiv(mainElement)
+  console.log(imgElement)
+  mainElement.append(divElement)
+  divElement.append(`${personTeam.name} ${personTeam.surname} ${personTeam.workingRole}`)
 }
 
 let getElement = document.querySelector("img")
